@@ -11,7 +11,7 @@ on:
           uses: actions/checkout@v2
 
         - name: build image and push to docker hub
-          users: docker/build-push-action@v1.v1.0
+          uses: docker/build-push-action@v1.v1.0
           with:
             username: richardneves
             password: ${{ secrets.DOCKER_PASSWORD }}
