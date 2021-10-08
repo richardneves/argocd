@@ -16,7 +16,7 @@ jobs:
              username: richardneves
              password: ${{ secrets.DOCKER_PASSWORD }}
              repository: richardneves/argocd
-             tags: latest
+             tags: ${{  github.sha }}, latest
      deploy:
        name: Deploy
        runs-on: ubuntu-latest
@@ -32,7 +32,7 @@ jobs:
 
          - name: update k8s
            run: 
-             kustomize edit set image goapp=richardneves/argocd:latest
+             kustomize edit set image goapp=richardneves/ argocd:${{  github.sha  }}
              cat kustomization.yaml
 
          - name: commit
