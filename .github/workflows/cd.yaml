@@ -32,7 +32,8 @@ jobs:
 
          - name: update k8s
            run: 
-             kustomize edit set image goapp=richard/argocd:${{  github.sha  }}
+             cd
+             kustomize edit set image goapp=richardneves/argocd:${{  github.sha  }}
              cat kustomization.yaml
 
          - name: commit
